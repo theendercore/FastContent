@@ -1,4 +1,4 @@
-package org.teamvoided.template
+package org.teamvoided.trim_mod
 
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback
 import net.minecraft.server.command.dev.SpawnArmorTrimCommand
@@ -7,11 +7,11 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 @Suppress("unused")
-object Template {
-    private const val MODID = "template"
+object TrimMod {
+    private const val MODID = "trim_mod"
 
     @JvmField
-    val log: Logger = LoggerFactory.getLogger(Template::class.simpleName)
+    val log: Logger = LoggerFactory.getLogger(TrimMod::class.simpleName)
 
     fun commonInit() {
         log.info("Hello from Common")
