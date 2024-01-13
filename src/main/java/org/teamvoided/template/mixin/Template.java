@@ -6,13 +6,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static org.teamvoided.template.Template.LOGGER;
+import static org.teamvoided.template.Template.log;
 
 @Mixin(MinecraftClient.class)
 public class Template {
 
     @Inject(at = @At("HEAD"), method = "run")
     private void run(CallbackInfo info) {
-        LOGGER.info("Hello from Mixin");
+        log.info("Hello from Mixin");
     }
 }
