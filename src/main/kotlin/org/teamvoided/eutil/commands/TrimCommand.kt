@@ -1,4 +1,4 @@
-package org.teamvoided.trim_mod
+package org.teamvoided.eutil.commands
 
 import com.google.common.collect.Maps
 import com.mojang.brigadier.CommandDispatcher
@@ -19,8 +19,10 @@ import net.minecraft.text.Text
 import net.minecraft.util.Util
 import net.minecraft.util.collection.DefaultedList
 import net.minecraft.util.math.BlockPos
-import org.teamvoided.trim_mod.MaterialArgumentType.materialArg
-import org.teamvoided.trim_mod.PatterArgumentType.patternArg
+import org.teamvoided.eutil.commands.argument.MaterialArgumentType
+import org.teamvoided.eutil.commands.argument.MaterialArgumentType.materialArg
+import org.teamvoided.eutil.commands.argument.PatterArgumentType
+import org.teamvoided.eutil.commands.argument.PatterArgumentType.patternArg
 import java.awt.Color
 import kotlin.math.abs
 
@@ -32,9 +34,9 @@ object TrimCommand {
         val trimNode = literal("trim").build()
         dispatcher.root.addChild(trimNode)
 
-        val itemNode = literal("items").executes(::toggleItems).build()
+        val itemNode = literal("items").executes(TrimCommand::toggleItems).build()
         trimNode.addChild(itemNode)
-        val gridNode = literal("grid").executes(::toggleGrid).build()
+        val gridNode = literal("grid").executes(TrimCommand::toggleGrid).build()
         trimNode.addChild(gridNode)
 
         val trimNodeBlockPodArg = argument("pos", BlockPosArgumentType.blockPos()).build()

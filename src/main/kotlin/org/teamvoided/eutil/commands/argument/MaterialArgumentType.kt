@@ -1,4 +1,4 @@
-package org.teamvoided.trim_mod
+package org.teamvoided.eutil.commands.argument
 
 import com.mojang.brigadier.builder.RequiredArgumentBuilder
 import com.mojang.brigadier.context.CommandContext
@@ -14,11 +14,12 @@ import net.minecraft.server.command.CommandManager
 import net.minecraft.server.command.ServerCommandSource
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
+import org.teamvoided.eutil.EUtilMod
 import java.util.concurrent.CompletableFuture
 
 object MaterialArgumentType {
     fun materialArg(name: String): RequiredArgumentBuilder<ServerCommandSource, Identifier> {
-        return CommandManager.argument(name, IdentifierArgumentType.identifier()).suggests(::listSuggestions)
+        return CommandManager.argument(name, IdentifierArgumentType.identifier()).suggests(MaterialArgumentType::listSuggestions)
     }
 
     @Throws(CommandSyntaxException::class)
@@ -33,7 +34,7 @@ object MaterialArgumentType {
                 return material
             }
         } catch (e: Exception) {
-            TrimMod.log.info(e.message)
+            EUtilMod.log.info(e.message)
             e.printStackTrace()
         }
         return null as ArmorTrimMaterial

@@ -1,4 +1,4 @@
-package org.teamvoided.trim_mod.mixin;
+package org.teamvoided.eutil.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import org.spongepowered.asm.mixin.Mixin;
@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static org.teamvoided.trim_mod.TrimMod.log;
+import static org.teamvoided.eutil.EUtilMod.log;
 
 @Mixin(MinecraftClient.class)
 public class Template {

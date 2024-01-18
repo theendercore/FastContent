@@ -9,5 +9,5 @@ pluginManagement {
     }
 }
 
-rootProject.name = "TrimMod"
+rootProject.name = "eUtil"
 

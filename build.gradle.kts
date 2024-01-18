@@ -10,7 +10,7 @@ plugins {
 group = project.properties["maven_group"]!!
 version = project.properties["mod_version"]!!
 base.archivesName.set(project.properties["archives_base_name"] as String)
-description = "Trim Mod"
+description = "eUtil"
 val modid = project.properties["modid"]!! as String
 
 repositories {
@@ -19,10 +19,15 @@ repositories {
 
 modSettings {
     modId(modid)
-    modName("Trim Mod")
+    modName("eUtil")
 
-    entrypoint("main", "org.teamvoided.trim_mod.TrimMod::commonInit")
-    entrypoint("client", "org.teamvoided.trim_mod.TrimMod::clientInit")
+    entrypoint("main", "org.teamvoided.eutil.EUtilMod::commonInit")
+    entrypoint("client", "org.teamvoided.eutil.EUtilMod::clientInit")
+    accessWidener("eutil.accesswidener")
+}
+
+loom {
+    accessWidenerPath.set(file("src/main/resources/eutil.accesswidener"))
 }
 
 tasks {
